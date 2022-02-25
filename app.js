@@ -6,6 +6,7 @@ const request = require('request');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+dotenv.config({path : './config.env'});
 
 app.use(express.static('public'));
 
@@ -29,6 +30,6 @@ app.get('/search', (req,res)=> {
     res.render('search');
 });
 
-app.listen(3000, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log('Server started at port 3000.');
 });
